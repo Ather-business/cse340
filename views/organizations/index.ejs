@@ -1,0 +1,8 @@
+<% layout('layout') -%>
+<h2>Organizations</h2>
+<a href="/organizations/new">Add Organization</a>
+<ul>
+  <% organizations.forEach(function(o){ %>
+    <li><strong><%= o.name %></strong> — <%= o.description %> — <a href="/organizations/<%= o.id %>/edit">Edit</a></li>
+  <% }) %>
+</ul>

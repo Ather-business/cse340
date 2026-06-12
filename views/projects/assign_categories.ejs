@@ -1,0 +1,10 @@
+<% layout('layout') -%>
+<h2>Assign Categories to <%= project.name %></h2>
+<form method="post" action="/projects/<%= project.id %>/assign-categories">
+  <% categories.forEach(function(c){ %>
+    <label>
+      <input type="checkbox" name="categories" value="<%= c.id %>" <%= (project.categories||[]).includes(c.id)? 'checked':'' %> > <%= c.name %>
+    </label><br>
+  <% }) %>
+  <button type="submit">Save</button>
+</form>

@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+<h2>Projects</h2>
+<a href="/projects/new">Add Project</a>
+<ul>
+  <% projects.forEach(function(p){ %>
+    <li>
+      <strong><%= p.name %></strong> — <%= p.description %>
+      <% if (p.organizationId) { %>
+        (Org: <%= (orgs.find(o=>o.id===p.organizationId)||{}).name %>)
+      <% } %>
+      Categories: <%= (p.categories||[]).map(id=> (cats.find(c=>c.id===id)||{}).name).filter(Boolean).join(', ') %>
+      — <a href="/projects/<%= p.id %>/edit">Edit</a>
+      — <a href="/projects/<%= p.id %>/assign-categories">Assign Categories</a>
+    </li>
+  <% }) %>
+</ul>

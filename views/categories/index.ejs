@@ -1,0 +1,8 @@
+<% layout('layout') -%>
+<h2>Categories</h2>
+<a href="/categories/new">Add Category</a>
+<ul>
+  <% categories.forEach(function(c){ %>
+    <li><%= c.name %> — <a href="/categories/<%= c.id %>/edit">Edit</a></li>
+  <% }) %>
+</ul>
